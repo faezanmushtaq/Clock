@@ -41,7 +41,8 @@ const val WAS_INITIAL_WIDGET_SET_UP = "was_initial_widget_set_up"
 const val DATA_EXPORT_EXTENSION = ".json"
 const val LAST_DATA_EXPORT_PATH = "last_alarms_export_path"
 const val MIGRATE_FIRST_DAY_OF_WEEK = "migrate_first_day_of_week"
-const val WAS_BRUTAL_THEME_APPLIED = "was_brutal_theme_applied"
+const val BRUTAL_THEME_SEED_VERSION = "brutal_theme_seed_version"
+const val CURRENT_BRUTAL_THEME_SEED_VERSION = 2
 
 const val TABS_COUNT = 4
 const val EDITED_TIME_ZONE_SEPARATOR = ":"

@@ -12,6 +12,7 @@ import org.fossify.clock.extensions.getOpenTimerTabIntent
 import org.fossify.clock.extensions.getTimerNotification
 import org.fossify.clock.extensions.hideNotification
 import org.fossify.clock.extensions.timerHelper
+import org.fossify.clock.helpers.CURRENT_BRUTAL_THEME_SEED_VERSION
 import org.fossify.clock.helpers.Stopwatch
 import org.fossify.clock.helpers.Stopwatch.State
 import org.fossify.clock.models.TimerEvent
@@ -39,14 +40,17 @@ class App : FossifyApp(), LifecycleObserver {
     }
 
     /**
-     * One-time seed of the dark neo-brutalist palette into the runtime color
-     * config so existing installs (and code paths that read stored colors
-     * instead of theme attributes) pick it up. Only runs once; the user can
-     * still customize colors afterwards via Settings.
+     * Seeds the dark neo-brutalist palette into the runtime color config so
+     * existing installs (and code paths that read stored colors instead of
+     * theme attributes) pick it up. Also disables the Material You system
+     * theme, which commons enables by default on Android 12+ and which would
+     * otherwise override the palette with wallpaper-derived colors.
+     * Re-runs whenever CURRENT_BRUTAL_THEME_SEED_VERSION is bumped. The user
+     * can still customize colors afterwards via Settings.
      */
     private fun applyBrutalThemeOnce() {
         val config = this.config
-        if (config.wasBrutalThemeApplied) {
+        if (config.brutalThemeSeedVersion >= CURRENT_BRUTAL_THEME_SEED_VERSION) {
             return
         }
 
@@ -54,7 +58,8 @@ class App : FossifyApp(), LifecycleObserver {
         config.textColor = resources.getColor(R.color.brutal_text)
         config.primaryColor = resources.getColor(R.color.brutal_accent)
         config.accentColor = resources.getColor(R.color.brutal_accent)
-        config.wasBrutalThemeApplied = true
+        config.isSystemThemeEnabled = false
+        config.brutalThemeSeedVersion = CURRENT_BRUTAL_THEME_SEED_VERSION
     }
 
     override fun onTerminate() {

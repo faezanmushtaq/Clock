@@ -151,9 +151,9 @@ class Config(context: Context) : BaseConfig(context) {
             putBoolean(MIGRATE_FIRST_DAY_OF_WEEK, migrateFirstDayOfWeek)
         }
 
-    var wasBrutalThemeApplied: Boolean
-        get() = prefs.getBoolean(WAS_BRUTAL_THEME_APPLIED, false)
-        set(wasBrutalThemeApplied) = prefs.edit {
-            putBoolean(WAS_BRUTAL_THEME_APPLIED, wasBrutalThemeApplied)
+    var brutalThemeSeedVersion: Int
+        get() = prefs.getInt(BRUTAL_THEME_SEED_VERSION, 0)
+        set(version) = prefs.edit {
+            putInt(BRUTAL_THEME_SEED_VERSION, version)
         }
 }

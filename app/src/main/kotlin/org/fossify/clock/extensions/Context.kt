@@ -585,3 +585,36 @@ fun Context.firstDayOrder(bitMask: Int): Int {
 
     return bitMask
 }
+
+/**
+ * Crash-safe reimplementation of commons' getSelectedDaysString. The commons
+ * version casts Array.toList() to java.util.ArrayList, which throws
+ * ClassCastException with newer Kotlin stdlibs (Arrays$ArrayList).
+ */
+fun Context.getSelectedDaysStringSafe(bitMask: Int): String {
+    val dayBits = arrayListOf(
+        MONDAY_BIT,
+        TUESDAY_BIT,
+        WEDNESDAY_BIT,
+        THURSDAY_BIT,
+        FRIDAY_BIT,
+        SATURDAY_BIT,
+        SUNDAY_BIT
+    )
+    val weekDays = resources
+        .getStringArray(org.fossify.commons.R.array.week_days_short)
+        .toCollection(ArrayList())
+
+    if (config.isSundayFirst) {
+        dayBits.add(dayBits.removeAt(dayBits.size - 1))
+        weekDays.add(weekDays.removeAt(weekDays.size - 1))
+    }
+
+    var days = ""
+    dayBits.forEachIndexed { index, bit ->
+        if (bitMask and bit != 0) {
+            days += "${weekDays[index]}, "
+        }
+    }
+    return days.trim().trimEnd(',')
+}
