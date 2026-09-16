@@ -33,8 +33,28 @@ class App : FossifyApp(), LifecycleObserver {
 
     override fun onCreate() {
         super.onCreate()
+        applyBrutalThemeOnce()
         ProcessLifecycleOwner.get().lifecycle.addObserver(this)
         EventBus.getDefault().register(this)
+    }
+
+    /**
+     * One-time seed of the dark neo-brutalist palette into the runtime color
+     * config so existing installs (and code paths that read stored colors
+     * instead of theme attributes) pick it up. Only runs once; the user can
+     * still customize colors afterwards via Settings.
+     */
+    private fun applyBrutalThemeOnce() {
+        val config = this.config
+        if (config.wasBrutalThemeApplied) {
+            return
+        }
+
+        config.backgroundColor = resources.getColor(R.color.brutal_background)
+        config.textColor = resources.getColor(R.color.brutal_text)
+        config.primaryColor = resources.getColor(R.color.brutal_accent)
+        config.accentColor = resources.getColor(R.color.brutal_accent)
+        config.wasBrutalThemeApplied = true
     }
 
     override fun onTerminate() {

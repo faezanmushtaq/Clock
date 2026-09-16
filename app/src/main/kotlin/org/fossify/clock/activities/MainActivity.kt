@@ -7,7 +7,6 @@ import android.graphics.drawable.Icon
 import android.graphics.drawable.LayerDrawable
 import android.os.Bundle
 import android.view.WindowManager
-import androidx.core.graphics.drawable.toDrawable
 import me.grantland.widget.AutofitHelper
 import org.fossify.clock.BuildConfig
 import org.fossify.clock.R
@@ -38,7 +37,6 @@ import org.fossify.commons.databinding.BottomTablayoutItemBinding
 import org.fossify.commons.extensions.appLaunched
 import org.fossify.commons.extensions.applyColorFilter
 import org.fossify.commons.extensions.convertToBitmap
-import org.fossify.commons.extensions.getBottomNavigationBackgroundColor
 import org.fossify.commons.extensions.getProperBackgroundColor
 import org.fossify.commons.extensions.getProperPrimaryColor
 import org.fossify.commons.extensions.getProperTextColor
@@ -105,7 +103,8 @@ class MainActivity : SimpleActivity() {
 
         val configBackgroundColor = getProperBackgroundColor()
         if (storedBackgroundColor != configBackgroundColor) {
-            binding.mainTabsHolder.background = configBackgroundColor.toDrawable()
+            binding.mainTabsHolder.background =
+                resources.getDrawable(R.drawable.bg_brutal_tab_bar)
         }
 
         val configPrimaryColor = getProperPrimaryColor()
@@ -326,8 +325,8 @@ class MainActivity : SimpleActivity() {
         }
 
         binding.mainTabsHolder.getTabAt(binding.viewPager.currentItem)?.select()
-        val bottomBarColor = getBottomNavigationBackgroundColor()
-        binding.mainTabsHolder.setBackgroundColor(bottomBarColor)
+        binding.mainTabsHolder.background =
+            resources.getDrawable(R.drawable.bg_brutal_tab_bar)
     }
 
     private fun getInactiveTabIndexes(activeIndex: Int): List<Int> {

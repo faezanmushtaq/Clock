@@ -5,6 +5,7 @@
     android:layout_width="@dimen/alarm_day_size"
     android:layout_height="@dimen/alarm_day_size"
     android:layout_marginEnd="@dimen/small_margin"
+    android:background="@drawable/bg_brutal_box"
     android:clickable="true"
     android:focusable="true"
     android:gravity="center"

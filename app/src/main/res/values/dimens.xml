@@ -12,6 +12,9 @@
     <dimen name="textview_drawable_size">24dp</dimen>
     <dimen name="drag_handle_size">40dp</dimen>
 
+    <dimen name="brutal_stroke_width">2dp</dimen>
+    <dimen name="brutal_shadow_offset">4dp</dimen>
+
     <dimen name="clock_text_size">80sp</dimen>
     <dimen name="alarm_text_size">60sp</dimen>
     <dimen name="timer_text_size">@dimen/alarm_text_size</dimen>

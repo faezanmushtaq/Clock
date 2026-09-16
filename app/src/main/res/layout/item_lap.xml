@@ -5,9 +5,12 @@
     android:id="@+id/lap_holder"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/big_margin"
+    android:layout_marginVertical="@dimen/tiny_margin"
+    android:background="@drawable/bg_brutal_box"
     android:gravity="center_horizontal"
-    android:paddingHorizontal="@dimen/big_margin"
-    android:paddingVertical="@dimen/small_margin">
+    android:paddingHorizontal="@dimen/medium_margin"
+    android:paddingVertical="@dimen/medium_margin">
 
     <org.fossify.commons.views.MyTextView
         android:id="@+id/lap_order"

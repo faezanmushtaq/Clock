@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark neo-brutalist palette (boxy) -->
+    <color name="brutal_background">#0E0E0E</color>
+    <color name="brutal_surface">#1A1A1A</color>
+    <color name="brutal_stroke">#F5F5F5</color>
+    <color name="brutal_shadow">#000000</color>
+    <color name="brutal_accent">#C8F542</color>
+    <color name="brutal_accent_alt">#FF5EA8</color>
+    <color name="brutal_text">#F5F5F5</color>
+    <color name="brutal_text_secondary">#9E9E9E</color>
+    <color name="brutal_on_accent">#0E0E0E</color>
+
+    <!-- Override Fossify commons defaults so every runtime-resolved color
+         (getProperTextColor/getProperBackgroundColor/getProperPrimaryColor)
+         starts from the brutal palette. -->
+    <color name="theme_dark_background_color">@color/brutal_background</color>
+    <color name="theme_dark_text_color">@color/brutal_text</color>
+    <color name="theme_dark_red_primary_color">@color/brutal_accent_alt</color>
+    <color name="color_primary">@color/brutal_accent</color>
+    <color name="color_primary_dark">@color/brutal_background</color>
+    <color name="color_accent">@color/brutal_accent</color>
+</resources>

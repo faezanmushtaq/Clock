@@ -150,4 +150,10 @@ class Config(context: Context) : BaseConfig(context) {
         set(migrateFirstDayOfWeek) = prefs.edit {
             putBoolean(MIGRATE_FIRST_DAY_OF_WEEK, migrateFirstDayOfWeek)
         }
+
+    var wasBrutalThemeApplied: Boolean
+        get() = prefs.getBoolean(WAS_BRUTAL_THEME_APPLIED, false)
+        set(wasBrutalThemeApplied) = prefs.edit {
+            putBoolean(WAS_BRUTAL_THEME_APPLIED, wasBrutalThemeApplied)
+        }
 }

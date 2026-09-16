@@ -42,6 +42,7 @@
 
     <org.fossify.commons.views.MyFloatingActionButton
         android:id="@+id/alarm_fab"
+        style="@style/BrutalFab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"

@@ -2,4 +2,30 @@
 
     <style name="AppTheme" parent="AppTheme.Base"/>
 
+    <!-- Boxy neo-brutalist components -->
+    <style name="BrutalText" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/brutal_text</item>
+    </style>
+
+    <style name="BrutalButton">
+        <item name="android:background">@drawable/bg_brutal_button_dark</item>
+        <item name="android:textColor">@color/brutal_text</item>
+        <item name="android:paddingStart">@dimen/activity_margin</item>
+        <item name="android:paddingEnd">@dimen/activity_margin</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Square, hard-edged FAB in accent lime -->
+    <style name="BrutalFab">
+        <item name="android:backgroundTint">@color/brutal_accent</item>
+        <item name="tint">@color/brutal_on_accent</item>
+        <item name="rippleColor">@color/pressed_item_foreground</item>
+        <item name="shapeAppearanceOverlay">@style/BrutalFabShape</item>
+    </style>
+
+    <style name="BrutalFabShape">
+        <item name="cornerFamily">square</item>
+        <item name="cornerSize">0dp</item>
+    </style>
+
 </resources>
