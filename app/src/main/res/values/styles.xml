@@ -24,7 +24,7 @@
     </style>
 
     <style name="BrutalFabShape">
-        <item name="cornerFamily">square</item>
+        <item name="cornerFamily">cut</item>
         <item name="cornerSize">0dp</item>
     </style>
 
